@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  sparkplug_simulator:
+    build: .
+    container_name: sparkplug_simulator
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    environment:
+      - MQTT_BROKER=broker-url
+      - MQTT_PORT=broker-port
+      - MQTT_USERNAME=broker-username
+      - MQTT_PASSWORD=broker-password
+    command: python sparkplug_b_simulator.py
